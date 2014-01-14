@@ -1,0 +1,29 @@
+{
+  "name": "dsalib-javascript",
+  "version": "0.0.0",
+  "description": "Daily Data Structures and Algorithms Javascript library",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DSA-a-day/dsalib-javascript.git"
+  },
+  "keywords": [
+    "DSA-a-day",
+    "dsa-a-day",
+    "data",
+    "structures",
+    "algorithms"
+  ],
+  "author": "Clay Walker <clayzermk1+dsa@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DSA-a-day/dsalib-javascript/issues"
+  },
+  "homepage": "https://github.com/DSA-a-day/dsalib-javascript",
+  "devDependencies": {
+    "tap": "*"
+  }
+}
