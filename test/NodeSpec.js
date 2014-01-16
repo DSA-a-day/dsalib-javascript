@@ -1,5 +1,5 @@
-var test = require("tap").test,
-    Node;
+var Node,
+    test = require("tap").test;
 
 test("load Node class", function (t) {
   Node = require("../lib/Node");
