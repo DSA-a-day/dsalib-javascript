@@ -31,3 +31,14 @@ test("get node at index", function (t) {
   t.equal(l.get(2).value, "baz", "2.value should be baz");
   t.end();
 });
+
+test("set node at index", function (t) {
+  var l = new LinkedList([ "foo", "bar", "baz" ]);
+  l.set(0, new Node({ "value": "cat" }));
+  t.equal(l.get(0).value, "cat", "0.value should be cat");
+  l.set(1, new Node({ "value": "dog" }));
+  t.equal(l.get(1).value, "dog", "1.value should be dog");
+  l.set(2, new Node({ "value": "rat" }));
+  t.equal(l.get(2).value, "rat", "2.value should be rat");
+  t.end();
+});
