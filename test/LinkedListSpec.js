@@ -24,6 +24,16 @@ test("array constructor", function (t) {
   t.end();
 });
 
+test("LinkedList to array", function (t) {
+  var l = new LinkedList();
+  t.deepEqual(l.toArray(), [], "array should be empty");
+  t.equal(l.length, 0, "length should be 0");
+  l = new LinkedList([ "foo", "bar", "baz" ]);
+  t.deepEqual(l.toArray(), [ "foo", "bar", "baz" ], "array should be: foo, bar, baz");
+  t.equal(l.length, 3, "length should be 3");
+  t.end();
+});
+
 test("get node at index", function (t) {
   var l = new LinkedList([ "foo", "bar", "baz" ]);
   t.equal(l.get(0).value, "foo", "0.value should be foo");
@@ -35,10 +45,38 @@ test("get node at index", function (t) {
 test("set node at index", function (t) {
   var l = new LinkedList([ "foo", "bar", "baz" ]);
   l.set(0, new Node({ "value": "cat" }));
-  t.equal(l.get(0).value, "cat", "0.value should be cat");
+  t.deepEqual(l.toArray(), [ "cat", "bar", "baz" ], "l should be: cat, bar, baz");
   l.set(1, new Node({ "value": "dog" }));
-  t.equal(l.get(1).value, "dog", "1.value should be dog");
+  t.deepEqual(l.toArray(), [ "cat", "dog", "baz" ], "l should be: cat, dog, baz");
   l.set(2, new Node({ "value": "rat" }));
-  t.equal(l.get(2).value, "rat", "2.value should be rat");
+  t.deepEqual(l.toArray(), [ "cat", "dog", "rat" ], "l should be: cat, dog, rat");
+  t.end();
+});
+
+test("insert node at index", function (t) {
+  var l = new LinkedList();
+  l.insert(0, new Node({ "value": "foo" }));
+  t.deepEqual(l.toArray(), [ "foo" ], "l should be: foo");
+  t.equal(l.length, 1, "length should be 1");
+  l.insert(1, new Node({ "value": "baz" }));
+  t.deepEqual(l.toArray(), [ "foo", "baz" ], "l should be: foo, baz");
+  t.equal(l.length, 2, "length should be 2");
+  l.insert(1, new Node({ "value": "bar" }));
+  t.deepEqual(l.toArray(), [ "foo", "bar", "baz" ], "l should be: foo, bar, baz");
+  t.equal(l.length, 3, "length should be 3");
+  t.end();
+});
+
+test("remove node at index", function (t) {
+  var l = new LinkedList([ "foo", "bar", "baz" ]);
+  l.remove(1);
+  t.deepEqual(l.toArray(), [ "foo", "baz" ], "l should be: foo, baz");
+  t.equal(l.length, 2, "length should be 2");
+  l.remove(1);
+  t.deepEqual(l.toArray(), [ "foo" ], "l should be: foo");
+  t.equal(l.length, 1, "length should be 1");
+  l.remove(0);
+  t.deepEqual(l.toArray(), [], "l should be an empty array");
+  t.equal(l.length, 0, "length should be 0");
   t.end();
 });
