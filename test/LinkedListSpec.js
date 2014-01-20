@@ -10,6 +10,7 @@ test("load LinkedList class", function (t) {
 
 test("empty constructor", function (t) {
   var l = new LinkedList();
+  t.equal(l instanceof LinkedList, true, "should be an instance of LinkedList");
   t.equal(l.length, 0, "length should be 0");
   t.equal(l.head, undefined, "head should be undefined");
   t.end();
@@ -17,6 +18,7 @@ test("empty constructor", function (t) {
 
 test("array constructor", function (t) {
   var l = new LinkedList([ "foo", "bar", "baz" ]);
+  t.equal(l instanceof LinkedList, true, "should be an instance of LinkedList");
   t.equal(l.length, 3, "length should be 3");
   t.equal(l.head.value, "foo", "head.value should be foo");
   t.equal(l.head.next.value, "bar", "head.next.value should be bar");
@@ -78,5 +80,28 @@ test("remove node at index", function (t) {
   l.remove(0);
   t.deepEqual(l.toArray(), [], "l should be an empty array");
   t.equal(l.length, 0, "length should be 0");
+  t.end();
+});
+
+test("prepend a node", function (t) {
+  var l = new LinkedList([ "bar", "baz" ]);
+  l.prepend(new Node({ "value": "foo" }));
+  t.deepEqual(l.toArray(), [ "foo", "bar", "baz" ], "l should be: foo, bar, baz");
+  t.end();
+});
+
+test("append a node", function (t) {
+  var l = new LinkedList([ "foo", "bar" ]);
+  l.append(new Node({ "value": "baz" }));
+  t.deepEqual(l.toArray(), [ "foo", "bar", "baz" ], "l should be: foo, bar, baz");
+  t.end();
+});
+
+test("concatenate lists", function (t) {
+  var l1 = new LinkedList([ "foo" ]);
+  var l2 = new LinkedList([ "bar" ]);
+  var l3 = new LinkedList([ "baz" ]);
+  l1.concat(l2, l3);
+  t.deepEqual(l1.toArray(), [ "foo", "bar", "baz" ], "l should be: foo, bar, baz");
   t.end();
 });

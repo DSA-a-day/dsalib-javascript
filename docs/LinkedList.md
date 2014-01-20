@@ -45,3 +45,27 @@ Removes a Node at an index.
 `node` - The Node to remove.
 
 return - The LinkedList.
+
+## LinkedList.prototype.prepend(node) ##
+
+Prepends a Node to the LinkedList.
+
+`node` -  The Node to prepend.
+
+return - The LinkedList.
+
+## LinkedList.prototype.append(node) ##
+
+Appends a Node to the LinkedList.
+
+`node` - The Node to append.
+
+return - The LinkedList.
+
+## LinkedList.prototype.concat(list1, list2, ..., listN) ##
+
+Concatenates LinkedLists together.
+
+`list1-listN` - The LinkedLists to concatenate to the current LinkedList.
+
+return - The LinkedList.
