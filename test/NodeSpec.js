@@ -27,3 +27,11 @@ test("options constructor", function (t) {
   t.equal(n2.weight, 0, "weight should be 0");
   t.end();
 });
+
+test("toString", function (t) {
+  var n = new Node();
+  t.equal(n.toString(), "", "should be an empty string");
+  n = new Node({ "value": 42, "weight": 0 });
+  t.equal(n.toString(), "42", "value should be 42");
+  t.end();
+});
