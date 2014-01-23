@@ -105,3 +105,14 @@ test("concatenate lists", function (t) {
   t.deepEqual(l1.toArray(), [ "foo", "bar", "baz" ], "l should be: foo, bar, baz");
   t.end();
 });
+
+test("join", function (t) {
+  var l = new LinkedList();
+  t.equal(l.join(), "", "should be an empty string");
+  l = new LinkedList([ "foo", "bar", "baz" ]);
+  t.equal(l.join(), "foo,bar,baz", "should be sparated by ,");
+  t.equal(l.join(42), "foo42bar42baz", "should be sparated by 42");
+  t.equal(l.join({}), "foo{}bar{}baz", "should be sparated by {}");
+  t.equal(l.join(", "), "foo, bar, baz", "should be sparated by \", \"");
+  t.end();
+});

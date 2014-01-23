@@ -69,3 +69,10 @@ Concatenates LinkedLists together.
 `list1-listN` - The LinkedLists to concatenate to the current LinkedList.
 
 return - The LinkedList.
+
+## LinkedList.prototype.join(separator) ##
+
+Joins the LinkedList Node values together with a separator string. Consistent with `Array.join()`.
+
+`separator` - The separator string to use, defaults to ",".
+return - The string of values separated by the separator.
