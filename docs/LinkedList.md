@@ -46,7 +46,7 @@ Removes a Node at an index.
 
 return - The LinkedList.
 
-## LinkedList.prototype.prepend(node) ##
+## LinkedList.prototype.unshift(node) ##
 
 Prepends a Node to the LinkedList.
 
@@ -54,7 +54,7 @@ Prepends a Node to the LinkedList.
 
 return - The LinkedList.
 
-## LinkedList.prototype.append(node) ##
+## LinkedList.prototype.push(node) ##
 
 Appends a Node to the LinkedList.
 

@@ -85,14 +85,14 @@ test("remove node at index", function (t) {
 
 test("prepend a node", function (t) {
   var l = new LinkedList([ "bar", "baz" ]);
-  l.prepend(new Node({ "value": "foo" }));
+  l.unshift(new Node({ "value": "foo" }));
   t.deepEqual(l.toArray(), [ "foo", "bar", "baz" ], "l should be: foo, bar, baz");
   t.end();
 });
 
 test("append a node", function (t) {
   var l = new LinkedList([ "foo", "bar" ]);
-  l.append(new Node({ "value": "baz" }));
+  l.push(new Node({ "value": "baz" }));
   t.deepEqual(l.toArray(), [ "foo", "bar", "baz" ], "l should be: foo, bar, baz");
   t.end();
 });
