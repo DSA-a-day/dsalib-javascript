@@ -116,3 +116,21 @@ test("join", function (t) {
   t.equal(l.join(", "), "foo, bar, baz", "should be sparated by \", \"");
   t.end();
 });
+
+test("forEach", function (t) {
+  var l = new LinkedList([ "foo", "bar", "baz" ]);
+  var res = l.forEach(function (val, idx, ll, context) {
+    var v, i;
+    switch (idx) {
+      case 0: v = "foo"; i = 0; break;
+      case 1: v = "bar"; i = 1; break;
+      case 2: v = "baz"; i = 2; break;
+    }
+    t.equal(val, v, "val should be equal to " + v);
+    t.equal(idx, i, "idx should be equal to " + i);
+    t.deepEqual(ll, l, "ll should be the same as l");
+    t.deepEqual(context, { "cat": "dog" }, "context should be the same");
+  }, { "cat": "dog" });
+  t.deepEqual(res, l, "should chain");
+  t.end();
+});

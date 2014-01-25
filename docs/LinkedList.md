@@ -76,3 +76,12 @@ Joins the LinkedList Node values together with a separator string. Consistent wi
 
 `separator` - The separator string to use, defaults to ",".
 return - The string of values separated by the separator.
+
+## LinkedList.prototype.forEach(callback, [thisArg]) ##
+
+Executes a provided function once per node value.
+
+`callback` - The callback function to call for each node value. Will be passed (value, index, LinkedList, [thisArg])
+`thisArg` - Optional context to pass as `this`.
+
+return - The LinkedList.
