@@ -1,5 +1,4 @@
 var LinkedList,
-    Node = require("../lib/Node"),
     test = require("tap").test;
 
 test("load LinkedList class", function (t) {
@@ -46,24 +45,24 @@ test("get node at index", function (t) {
 
 test("set node at index", function (t) {
   var l = new LinkedList([ "foo", "bar", "baz" ]);
-  l.set(0, new Node({ "value": "cat" }));
+  l.set(0, { "value": "cat" });
   t.deepEqual(l.toArray(), [ "cat", "bar", "baz" ], "l should be: cat, bar, baz");
-  l.set(1, new Node({ "value": "dog" }));
+  l.set(1, { "value": "dog" });
   t.deepEqual(l.toArray(), [ "cat", "dog", "baz" ], "l should be: cat, dog, baz");
-  l.set(2, new Node({ "value": "rat" }));
+  l.set(2, { "value": "rat" });
   t.deepEqual(l.toArray(), [ "cat", "dog", "rat" ], "l should be: cat, dog, rat");
   t.end();
 });
 
 test("insert node at index", function (t) {
   var l = new LinkedList();
-  l.insert(0, new Node({ "value": "foo" }));
+  l.insert(0, { "value": "foo" });
   t.deepEqual(l.toArray(), [ "foo" ], "l should be: foo");
   t.equal(l.length, 1, "length should be 1");
-  l.insert(1, new Node({ "value": "baz" }));
+  l.insert(1, { "value": "baz" });
   t.deepEqual(l.toArray(), [ "foo", "baz" ], "l should be: foo, baz");
   t.equal(l.length, 2, "length should be 2");
-  l.insert(1, new Node({ "value": "bar" }));
+  l.insert(1, { "value": "bar" });
   t.deepEqual(l.toArray(), [ "foo", "bar", "baz" ], "l should be: foo, bar, baz");
   t.equal(l.length, 3, "length should be 3");
   t.end();
@@ -85,14 +84,14 @@ test("remove node at index", function (t) {
 
 test("prepend a node", function (t) {
   var l = new LinkedList([ "bar", "baz" ]);
-  l.unshift(new Node({ "value": "foo" }));
+  l.unshift({ "value": "foo" });
   t.deepEqual(l.toArray(), [ "foo", "bar", "baz" ], "l should be: foo, bar, baz");
   t.end();
 });
 
 test("append a node", function (t) {
   var l = new LinkedList([ "foo", "bar" ]);
-  l.push(new Node({ "value": "baz" }));
+  l.push({ "value": "baz" });
   t.deepEqual(l.toArray(), [ "foo", "bar", "baz" ], "l should be: foo, bar, baz");
   t.end();
 });
@@ -132,5 +131,14 @@ test("forEach", function (t) {
     t.deepEqual(context, { "cat": "dog" }, "context should be the same");
   }, { "cat": "dog" });
   t.deepEqual(res, l, "should chain");
+  t.end();
+});
+
+test("indexOf", function (t) {
+  var l = new LinkedList([ "foo", "bar", "baz" ]);
+  t.equal(l.indexOf("foo"), 0, "should find foo at 0");
+  t.equal(l.indexOf("bar"), 1, "should find bar at 1");
+  t.equal(l.indexOf("baz"), 2, "should find baz at 2");
+  t.equal(l.indexOf("baz", 1), 2, "specifying a starting index should still find baz at 2");
   t.end();
 });

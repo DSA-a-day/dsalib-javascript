@@ -85,3 +85,12 @@ Executes a provided function once per node value.
 `thisArg` - Optional context to pass as `this`.
 
 return - The LinkedList.
+
+## LinkedList.prototype.indexOf(search, [fromIndex]) ##
+
+Returns the first index at which a given value can be found in the LinkedList, or -1 if it is not present.
+
+`search` - The value to search for.
+`fromIndex` - Optional, the index to start at.
+
+return - The first index at which a given value can be found in the LinkedList, or -1 if it is not present.
