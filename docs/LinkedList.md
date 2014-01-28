@@ -1,96 +1,201 @@
-# LinkedList([array]) #
+A singly linked list.
 
-A [singly linked list](http://en.wikipedia.org/wiki/Linked_list#Singly_linked_list).
+_Source: [./lib/LinkedList.js](../lib/LinkedList.js)_
 
-`array` - Optional, an array to convert into a LinkedList.
+<a name="tableofcontents"></a>
 
-return - The LinkedList.
+- <a name="toc_linkedlistarray"></a>[LinkedList](#linkedlistarray)
+- <a name="toc_linkedlistprototypeconcatlist1-listn"></a><a name="toc_linkedlistprototype"></a>[LinkedList.prototype.concat](#linkedlistprototypeconcatlist1-listn)
+- <a name="toc_linkedlistprototypeforeachcallback-thisarg"></a>[LinkedList.prototype.forEach](#linkedlistprototypeforeachcallback-thisarg)
+- <a name="toc_linkedlistprototypegetindex"></a>[LinkedList.prototype.get](#linkedlistprototypegetindex)
+- <a name="toc_linkedlistprototypeindexofsearch-fromindex"></a>[LinkedList.prototype.indexOf](#linkedlistprototypeindexofsearch-fromindex)
+- <a name="toc_linkedlistprototypeinsertindex-node"></a>[LinkedList.prototype.insert](#linkedlistprototypeinsertindex-node)
+- <a name="toc_linkedlistprototypejoinseparator"></a>[LinkedList.prototype.join](#linkedlistprototypejoinseparator)
+- <a name="toc_linkedlistprototypepushnode"></a>[LinkedList.prototype.push](#linkedlistprototypepushnode)
+- <a name="toc_linkedlistprototyperemovenode"></a>[LinkedList.prototype.remove](#linkedlistprototyperemovenode)
+- <a name="toc_linkedlistprototypesetindex-node"></a>[LinkedList.prototype.set](#linkedlistprototypesetindex-node)
+- <a name="toc_linkedlistprototypetoarray"></a>[LinkedList.prototype.toArray](#linkedlistprototypetoarray)
+- <a name="toc_linkedlistprototypetostring"></a>[LinkedList.prototype.toString](#linkedlistprototypetostring)
+- <a name="toc_linkedlistprototypeunshiftnode"></a>[LinkedList.prototype.unshift](#linkedlistprototypeunshiftnode)
 
-## LinkedList.prototype.toArray() ##
+# LinkedList(array)
 
-Returns an array representation of the LinkedList values.
+> Constructor
 
-return - The array representation of the LinkedList values.
+**Parameters:**
 
-## LinkedList.prototype.get(index) ##
+- `{array} array` An array to convert into a LinkedList.
 
-Gets the Node at an index.
+**Return:**
 
-`index` - The index in the LinkedList to get.
+`{LinkedList}` The LinkedList.
 
-return - The Node.
+<sub>Go: [TOC](#tableofcontents)</sub>
 
-## LinkedList.prototype.set(index, node) ##
+<a name="linkedlistprototype"></a>
 
-Sets the Node at an index.
+# LinkedList.prototype.concat(list1-listN)
 
-`index` - The index in the LinkedList to set.
-`node` - The Node to set.
+> Concatenates LinkedLists together.
 
-return - The LinkedList.
+**Parameters:**
 
-## LinkedList.prototype.insert(index, node) ##
+- `{LinkedList} list1-listN` The LinkedLists to concatenate to the current [LinkedList](#linkedlistarray).
 
-Inserts a Node at an index before existing nodes.
+**Return:**
 
-`index` - The index in the LinkedList to insert at.
-`node` - The Node to insert.
+`{LinkedList}` The [LinkedList](#linkedlistarray).
 
-return - The LinkedList.
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
 
-## LinkedList.prototype.remove(index) ##
+# LinkedList.prototype.forEach(callback, thisArg)
 
-Removes a Node at an index.
+> Executes a provided function once per node value.
 
-`node` - The Node to remove.
+**Parameters:**
 
-return - The LinkedList.
+- `{function} callback` The callback function to call for each node value. Will be passed (value, index, [LinkedList](#linkedlistarray), [thisArg])
+- `{object} thisArg` Optional context to pass as `this`.
 
-## LinkedList.prototype.unshift(node) ##
+**Return:**
 
-Prepends a Node to the LinkedList.
+`{LinkedList}` The [LinkedList](#linkedlistarray).
 
-`node` -  The Node to prepend.
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
 
-return - The LinkedList.
+# LinkedList.prototype.get(index)
 
-## LinkedList.prototype.push(node) ##
+> Gets the node at an index.
 
-Appends a Node to the LinkedList.
+**Parameters:**
 
-`node` - The Node to append.
+- `{number} index` The index in the [LinkedList](#linkedlistarray) to get.
 
-return - The LinkedList.
+**Return:**
 
-## LinkedList.prototype.concat(list1, list2, ..., listN) ##
+`{object}` The node.
 
-Concatenates LinkedLists together.
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
 
-`list1-listN` - The LinkedLists to concatenate to the current LinkedList.
+# LinkedList.prototype.indexOf(search, fromIndex)
 
-return - The LinkedList.
+> Returns the first index at which a given value can be found in the [LinkedList](#linkedlistarray), or -1 if it is not present.
 
-## LinkedList.prototype.join(separator) ##
+**Parameters:**
 
-Joins the LinkedList Node values together with a separator string. Consistent with `Array.join()`.
+- `{mixed} search` The value to search for, uses `===` for comparison.
+- `{number} fromIndex` Optional, the index to start at.
 
-`separator` - The separator string to use, defaults to ",".
-return - The string of values separated by the separator.
+**Return:**
 
-## LinkedList.prototype.forEach(callback, [thisArg]) ##
+`{number}` The first index at which a given value can be found in the [LinkedList](#linkedlistarray), or -1 if it is not present.
 
-Executes a provided function once per node value.
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
 
-`callback` - The callback function to call for each node value. Will be passed (value, index, LinkedList, [thisArg])
-`thisArg` - Optional context to pass as `this`.
+# LinkedList.prototype.insert(index, node)
 
-return - The LinkedList.
+> Inserts a node at an index before existing nodes.
 
-## LinkedList.prototype.indexOf(search, [fromIndex]) ##
+**Parameters:**
 
-Returns the first index at which a given value can be found in the LinkedList, or -1 if it is not present.
+- `{number} index` The index in the [LinkedList](#linkedlistarray) to insert at.
+- `{object} node` The node to insert.
 
-`search` - The value to search for.
-`fromIndex` - Optional, the index to start at.
+**Return:**
 
-return - The first index at which a given value can be found in the LinkedList, or -1 if it is not present.
+`{LinkedList}` The [LinkedList](#linkedlistarray).
+
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
+
+# LinkedList.prototype.join(separator)
+
+> Joins the [LinkedList](#linkedlistarray) node values together with a separator string. Consistent with `Array.join()`.
+
+**Parameters:**
+
+- `{string} separator` The separator string to use, defaults to ",".
+
+**Return:**
+
+`{string}` The string of values separated by the separator.
+
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
+
+# LinkedList.prototype.push(node)
+
+> Appends a node to the [LinkedList](#linkedlistarray).
+
+**Parameters:**
+
+- `{object} node` The node to append.
+
+**Return:**
+
+`{LinkedList}` The [LinkedList](#linkedlistarray).
+
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
+
+# LinkedList.prototype.remove(node)
+
+> Removes a node at an index.
+
+**Parameters:**
+
+- `{object} node` The node to remove.
+
+**Return:**
+
+`{LinkedList}` The [LinkedList](#linkedlistarray).
+
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
+
+# LinkedList.prototype.set(index, node)
+
+> Sets the node at an index.
+
+**Parameters:**
+
+- `{number} index` The index in the [LinkedList](#linkedlistarray) to set.
+- `{object} node` The node to set.
+
+**Return:**
+
+`{LinkedList}` The [LinkedList](#linkedlistarray).
+
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
+
+# LinkedList.prototype.toArray()
+
+> Returns an array representation of the [LinkedList](#linkedlistarray) values.
+
+**Return:**
+
+`{array}` The array representation of the [LinkedList](#linkedlistarray) values.
+
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
+
+# LinkedList.prototype.toString()
+
+> Returns a string representation of the [LinkedList](#linkedlistarray) values.
+
+**Return:**
+
+`{string}` The string representation of the [LinkedList](#linkedlistarray) values.
+
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
+
+# LinkedList.prototype.unshift(node)
+
+> Prepends a node to the [LinkedList](#linkedlistarray).
+
+**Parameters:**
+
+- `{object} node` The node to prepend.
+
+**Return:**
+
+`{LinkedList}` The [LinkedList](#linkedlistarray).
+
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
+
+_&mdash;generated by [apidox](https://github.com/codeactual/apidox)&mdash;_

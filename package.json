@@ -4,7 +4,8 @@
   "description": "Daily Data Structures and Algorithms Javascript library",
   "main": "index.js",
   "scripts": {
-    "test": "tap ./test"
+    "pretest": "jshint ./lib/ ./test/",
+    "test": "tap ./test/"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/DSA-a-day/dsalib-javascript",
   "devDependencies": {
+    "jshint": "*",
     "tap": "*"
   }
 }
