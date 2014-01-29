@@ -6,6 +6,7 @@ _Source: [./lib/LinkedList.js](../lib/LinkedList.js)_
 
 - <a name="toc_linkedlistarray"></a>[LinkedList](#linkedlistarray)
 - <a name="toc_linkedlistprototypeconcatlist1-listn"></a><a name="toc_linkedlistprototype"></a>[LinkedList.prototype.concat](#linkedlistprototypeconcatlist1-listn)
+- <a name="toc_linkedlistprototypeeverycallback-thisarg"></a>[LinkedList.prototype.every](#linkedlistprototypeeverycallback-thisarg)
 - <a name="toc_linkedlistprototypeforeachcallback-thisarg"></a>[LinkedList.prototype.forEach](#linkedlistprototypeforeachcallback-thisarg)
 - <a name="toc_linkedlistprototypegetindex"></a>[LinkedList.prototype.get](#linkedlistprototypegetindex)
 - <a name="toc_linkedlistprototypeindexofsearch-fromindex"></a>[LinkedList.prototype.indexOf](#linkedlistprototypeindexofsearch-fromindex)
@@ -48,13 +49,28 @@ _Source: [./lib/LinkedList.js](../lib/LinkedList.js)_
 
 <sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
 
+# LinkedList.prototype.every(callback, thisArg)
+
+> Determines whether each value in the [LinkedList](#linkedlistarray) passes a truth test.
+
+**Parameters:**
+
+- `{function} callback` The callback function to use as a truth test. Will be passed (value, index, [LinkedList](#linkedlistarray), [thisArg]). Should return true or false.
+- `{object} thisArg` Optional context to pass as `this`.
+
+**Return:**
+
+`{boolean}` Whether every value in the [LinkedList](#linkedlistarray) passed the truth test.
+
+<sub>Go: [TOC](#tableofcontents) | [LinkedList.prototype](#toc_linkedlistprototype)</sub>
+
 # LinkedList.prototype.forEach(callback, thisArg)
 
 > Executes a provided function once per node value.
 
 **Parameters:**
 
-- `{function} callback` The callback function to call for each node value. Will be passed (value, index, [LinkedList](#linkedlistarray), [thisArg])
+- `{function} callback` The callback function to call for each node value. Will be passed (value, index, [LinkedList](#linkedlistarray), [thisArg]).
 - `{object} thisArg` Optional context to pass as `this`.
 
 **Return:**

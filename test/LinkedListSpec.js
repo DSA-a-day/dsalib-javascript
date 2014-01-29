@@ -29,6 +29,29 @@ test("LinkedList.prototype.concat()", function (t) {
   t.end();
 });
 
+test("LinkedList.prototype.every()", function (t) {
+  var l = new LinkedList([ "foo", "bar", "baz" ]);
+  var res = l.every(function (val, idx, ll, context) {
+    var v, i;
+    switch (idx) {
+      case 0: v = "foo"; i = 0; break;
+      case 1: v = "bar"; i = 1; break;
+      case 2: v = "baz"; i = 2; break;
+    }
+    t.equal(val, v, "val should be equal to " + v);
+    t.equal(idx, i, "idx should be equal to " + i);
+    t.deepEqual(ll, l, "ll should be the same as l");
+    t.deepEqual(context, { "cat": "dog" }, "context should be the same");
+    return (val !== "bar");
+  }, { "cat": "dog" });
+  t.deepEqual(res, false, "every value must not be equal to bar");
+  res = l.every(function (val, idx, ll, context) {
+    return (val !== "boom");
+  });
+  t.deepEqual(res, true, "every value must not be equal to boom");
+  t.end();
+});
+
 test("LinkedList.prototype.forEach()", function (t) {
   var l = new LinkedList([ "foo", "bar", "baz" ]);
   var res = l.forEach(function (val, idx, ll, context) {
